@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, useCallback } from 'react';
 import { Heart, Stars, Sparkles } from 'lucide-react';
 
 interface TimeLeft {
@@ -18,9 +18,9 @@ export default function CountdownSection() {
     triggerOnce: true,
   });
 
-  const targetDate = useMemo(() => new Date('2026-05-30T10:30:00').getTime(), []);
+  const targetDate = useMemo(() => new Date('2026-07-22T10:30:00').getTime(), []);
 
-  const getTimeLeft = (): TimeLeft => {
+  const getTimeLeft = useCallback((): TimeLeft => {
     const now = new Date().getTime();
     const difference = targetDate - now;
 
@@ -34,17 +34,20 @@ export default function CountdownSection() {
       minutes: Math.floor((difference / 1000 / 60) % 60),
       seconds: Math.floor((difference / 1000) % 60),
     };
-  };
+  }, [targetDate]);
 
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(getTimeLeft());
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
+    setTimeLeft(getTimeLeft());
     const timer = setInterval(() => {
       setTimeLeft(getTimeLeft());
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [targetDate]);
+  }, [getTimeLeft]);
 
   const countdownItems = [
     { label: 'Days', value: timeLeft.days },
@@ -53,14 +56,17 @@ export default function CountdownSection() {
     { label: 'Seconds', value: timeLeft.seconds },
   ];
 
-  const floatingHearts = Array.from({ length: 12 }).map((_, i) => ({
-    id: i,
-    left: `${Math.random() * 100}%`,
-    top: `${Math.random() * 100}%`,
-    size: 8 + Math.random() * 14,
-    delay: Math.random() * 5,
-    duration: 8 + Math.random() * 8,
-  }));
+  const floatingHearts = useMemo(() => {
+    if (!isMounted) return [];
+    return Array.from({ length: 12 }).map((_, i) => ({
+      id: i,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      size: 8 + Math.random() * 14,
+      delay: Math.random() * 5,
+      duration: 8 + Math.random() * 8,
+    }));
+  }, [isMounted]);
 
   return (
     <section

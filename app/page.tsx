@@ -1,9 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { EnvelopeOpener } from '@/components/envelope-opener';
+import { VideoIntro } from '@/components/video-intro';
 import HeroSection from '@/components/sections/HeroSection';
-import StorySection from '@/components/sections/StorySection';
+import InvitationSection from '@/components/sections/InvitationSection';
+
 import CeremonyDetails from '@/components/sections/CeremonyDetails';
 import CountdownSection from '@/components/sections/CountdownSection';
 import GallerySection from '@/components/sections/GallerySection';
@@ -27,11 +28,11 @@ export default function Home() {
       <MusicPlayer />
 
       {!isOpened ? (
-        <EnvelopeOpener onEnvelopeOpen={() => setIsOpened(true)} />
+        <VideoIntro onIntroEnd={() => setIsOpened(true)} />
       ) : (
         <>
           <HeroSection />
-          <StorySection />
+          <InvitationSection />
           <CeremonyDetails />
           <CountdownSection />
           <GallerySection />

@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Clock3, MapPin, Sparkles, Crown, Heart, Cross } from 'lucide-react';
+import { Clock3, MapPin, Sparkles, Crown, Heart } from 'lucide-react';
 import Image from 'next/image';
 
 export default function CeremonyDetails() {
@@ -13,24 +13,25 @@ export default function CeremonyDetails() {
 
   const detailGroups = [
     {
-      key: 'church',
-      title: 'Church',
-      timeLabel: 'Church Time',
-      timeValue: '9:30 AM',
-      timeSub: 'Holy wedding ceremony',
-      venueLabel: 'Church Venue',
-      venueValue: "St. Joseph's Church - Gonawila",
-      venueSub: 'Live location available',
+      key: 'poruwa',
+      title: 'Poruwa Ceremony',
+      timeLabel: 'Ceremony Time',
+      timeValue: '9:24 AM',
+      timeSub: 'Traditional Poruwa Ceremony',
     },
     {
-      key: 'function',
-      title: 'Function',
-      timeLabel: 'Function Time',
-      timeValue: '11:30 AM',
-      timeSub: 'Reception and celebration',
-      venueLabel: 'Function Venue',
-      venueValue: 'Sampath Banquet Hall',
-      venueSub: 'Live location available',
+      key: 'celebration',
+      title: 'Celebration',
+      timeLabel: 'Event Duration',
+      timeValue: '9:00 AM - 4:00 PM',
+      timeSub: 'Wedding reception and celebration',
+    },
+    {
+      key: 'venue',
+      title: 'Location',
+      venueLabel: 'Venue',
+      venueValue: 'Hotel Green Court',
+      venueSub: 'Homagama',
     },
   ];
 
@@ -71,8 +72,8 @@ export default function CeremonyDetails() {
               <div className="absolute -inset-3 rounded-t-[210px] rounded-b-[35px] border border-[#C9A227]/40 hidden md:block" />
 
               <Image
-                src="/images/IMG_2529.JPG.jpeg"
-                alt="Vimukthi and Piumi"
+                src="/images/couple-2.jpeg"
+                alt="Nimesh and Sarada"
                 fill
                 className="object-cover"
                 priority
@@ -85,18 +86,15 @@ export default function CeremonyDetails() {
                 style={{ backgroundImage: 'linear-gradient(rgba(201,162,39,0.55) 1px, transparent 1px), linear-gradient(90deg, rgba(201,162,39,0.55) 1px, transparent 1px)', backgroundSize: '38px 38px' }} />
 
               <div className="relative z-10 flex h-full flex-col items-center justify-center px-8 text-center text-[#f5e6c8]">
-                <div className="inline-flex items-center gap-2 rounded-full border border-[#f0d18b]/40 bg-black/25 px-4 py-1.5 backdrop-blur-sm">
-                  <Cross className="h-3.5 w-3.5 text-[#f4ddab]" />
-                  <p className="text-[10px] uppercase tracking-[0.32em] text-[#f6dd9a] drop-shadow-[0_2px_10px_rgba(0,0,0,0.65)]">Blessed Union</p>
-                </div>
+
                 <h3 className="mt-5 font-serif text-4xl text-[#fff7de] drop-shadow-[0_4px_16px_rgba(0,0,0,0.75)]">
-                  VIMUKTHI <span className="text-[#f0d18b]">&amp;</span> PIUMI
+                  NIMESH <span className="text-[#f0d18b]">&amp;</span> SARADA
                 </h3>
                 <p className="mt-4 text-sm leading-7 text-[#f5e6c8]/80">
-                  "Love is patient, love is kind." Join us as we exchange vows in faith, gratitude, and joy.
+                  Join us as we exchange vows in faith, gratitude, and joy.
                 </p>
                 <div className="mt-8 h-px w-28 bg-[#C9A227]/50" />
-                <p className="mt-5 text-xs uppercase tracking-[0.28em] text-[#C9A227]">May 30, 2026</p>
+                <p className="mt-5 text-xs uppercase tracking-[0.28em] text-[#C9A227]">July 22, 2026</p>
               </div>
 
               <motion.div
@@ -144,7 +142,7 @@ export default function CeremonyDetails() {
             </h2>
 
             <p className="mb-12 text-lg leading-relaxed text-[#f5e6c8]/70 max-w-lg">
-              With immense joy in our hearts, we invite you to share our happiness as we exchange our vows before God. Join us for a sacred Christian celebration of faith, love, and lifelong commitment.
+              With immense joy in our hearts, we invite you to share our happiness as we exchange our vows. Join us for a beautiful celebration of faith, love, and lifelong commitment.
             </p>
 
             <div className="flex flex-col gap-5">
@@ -165,29 +163,35 @@ export default function CeremonyDetails() {
                     </div>
 
                     <div className="space-y-5">
-                      <div className="flex items-start gap-4">
-                        <div className="mt-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#C9A227]/30 bg-gradient-to-br from-[#4a0f18] to-[#1a0408] shadow-inner">
-                          <Clock3 className="h-5 w-5 text-[#C9A227]" />
+                      {group.timeLabel && (
+                        <div className="flex items-start gap-4">
+                          <div className="mt-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#C9A227]/30 bg-gradient-to-br from-[#4a0f18] to-[#1a0408] shadow-inner">
+                            <Clock3 className="h-5 w-5 text-[#C9A227]" />
+                          </div>
+                          <div>
+                            <p className="text-xs uppercase tracking-[0.25em] text-[#C9A227]/70 mb-1">{group.timeLabel}</p>
+                            <h3 className="font-serif text-2xl text-[#f5e6c8]">{group.timeValue}</h3>
+                            <p className="text-sm text-[#f5e6c8]/50 mt-1">{group.timeSub}</p>
+                          </div>
                         </div>
-                        <div>
-                          <p className="text-xs uppercase tracking-[0.25em] text-[#C9A227]/70 mb-1">{group.timeLabel}</p>
-                          <h3 className="font-serif text-2xl text-[#f5e6c8]">{group.timeValue}</h3>
-                          <p className="text-sm text-[#f5e6c8]/50 mt-1">{group.timeSub}</p>
-                        </div>
-                      </div>
+                      )}
 
-                      <div className="h-px w-full bg-[#C9A227]/20" />
+                      {group.timeLabel && group.venueLabel && (
+                        <div className="h-px w-full bg-[#C9A227]/20" />
+                      )}
 
-                      <div className="flex items-start gap-4">
-                        <div className="mt-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#C9A227]/30 bg-gradient-to-br from-[#4a0f18] to-[#1a0408] shadow-inner">
-                          <MapPin className="h-5 w-5 text-[#C9A227]" />
+                      {group.venueLabel && (
+                        <div className="flex items-start gap-4">
+                          <div className="mt-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#C9A227]/30 bg-gradient-to-br from-[#4a0f18] to-[#1a0408] shadow-inner">
+                            <MapPin className="h-5 w-5 text-[#C9A227]" />
+                          </div>
+                          <div>
+                            <p className="text-xs uppercase tracking-[0.25em] text-[#C9A227]/70 mb-1">{group.venueLabel}</p>
+                            <h3 className="font-serif text-2xl text-[#f5e6c8]">{group.venueValue}</h3>
+                            <p className="text-sm text-[#f5e6c8]/50 mt-1">{group.venueSub}</p>
+                          </div>
                         </div>
-                        <div>
-                          <p className="text-xs uppercase tracking-[0.25em] text-[#C9A227]/70 mb-1">{group.venueLabel}</p>
-                          <h3 className="font-serif text-2xl text-[#f5e6c8]">{group.venueValue}</h3>
-                          <p className="text-sm text-[#f5e6c8]/50 mt-1">{group.venueSub}</p>
-                        </div>
-                      </div>
+                      )}
                     </div>
                   </motion.div>
                 );
@@ -208,8 +212,8 @@ export default function CeremonyDetails() {
                 <span className="w-6 h-[1px] bg-[#C9A227]"></span> Guest Notes
               </h4>
               <div className="space-y-2">
-                <p className="text-[#f5e6c8]/80 text-sm md:text-base"><span className="text-[#C9A227]">Dress Code:</span> Church Formal / Elegant Attire</p>
-                <p className="text-[#f5e6c8]/80 text-sm md:text-base"><span className="text-[#C9A227]">Reception:</span> Function starts at 11:30 AM at Sampath Banquet Hall</p>
+                <p className="text-[#f5e6c8]/80 text-sm md:text-base"><span className="text-[#C9A227]">Dress Code:</span> Formal / Elegant Attire</p>
+                <p className="text-[#f5e6c8]/80 text-sm md:text-base"><span className="text-[#C9A227]">Reception:</span> Celebration continues until 04:00 PM</p>
               </div>
             </motion.div>
 

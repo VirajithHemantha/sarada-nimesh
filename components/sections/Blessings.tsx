@@ -17,26 +17,7 @@ export default function Blessings() {
     triggerOnce: true,
   });
 
-  const [blessings, setBlessings] = useState<Blessing[]>([
-    {
-      id: '1',
-      name: 'Priya & Rajesh',
-      message:
-        'A beautiful journey awaits you both. May your home be filled with grace, warmth, and endless joy through every season of life.',
-    },
-    {
-      id: '2',
-      name: 'Amira Khan',
-      message:
-        'May your love continue to deepen with every passing day, and may your marriage be blessed with peace, understanding, and happiness.',
-    },
-    {
-      id: '3',
-      name: 'Sarah Williams',
-      message:
-        'So happy to celebrate this beautiful union. Wishing you a lifetime of unforgettable memories, laughter, and love.',
-    },
-  ]);
+  const [blessings, setBlessings] = useState<Blessing[]>([]);
 
   const [newBlessing, setNewBlessing] = useState('');
   const [newName, setNewName] = useState('');

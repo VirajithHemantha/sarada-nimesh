@@ -13,29 +13,7 @@ interface Blessing {
 }
 
 export function BlessingMessages() {
-  const [blessings, setBlessings] = useState<Blessing[]>([
-    {
-      id: 1,
-      author: 'Amali Wijesekera',
-      message:
-        'May your love continue to bloom with grace and devotion, and may every chapter of your life together be filled with happiness, strength, and peace.',
-      timestamp: '2 days ago',
-    },
-    {
-      id: 2,
-      author: "VIMUKTHI's Family",
-      message:
-        'With joy in our hearts, we welcome this beautiful union. May your home be filled with laughter, understanding, and lasting blessings.',
-      timestamp: '5 days ago',
-    },
-    {
-      id: 3,
-      author: 'Best Friend Forever',
-      message:
-        'From treasured memories to this unforgettable day, it has been a privilege to witness your journey. Wishing you a lifetime of love and beautiful beginnings.',
-      timestamp: '1 week ago',
-    },
-  ]);
+  const [blessings, setBlessings] = useState<Blessing[]>([]);
 
   const [newBlessing, setNewBlessing] = useState('');
   const [blessingAuthor, setBlessingAuthor] = useState('');
