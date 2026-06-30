@@ -34,19 +34,35 @@ export default function Blessings() {
     []
   );
 
-  const handleAddBlessing = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleAddBlessing = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (newBlessing.trim() && newName.trim()) {
-      const blessing: Blessing = {
-        id: Date.now().toString(),
-        name: newName.trim(),
-        message: newBlessing.trim(),
-      };
+      setIsSubmitting(true);
+      try {
+        const { submitToGoogleSheets } = await import('@/lib/googleSheets');
+        await submitToGoogleSheets({
+          formType: 'wish',
+          name: newName.trim(),
+          message: newBlessing.trim(),
+        });
 
-      setBlessings([blessing, ...blessings]);
-      setNewBlessing('');
-      setNewName('');
+        const blessing: Blessing = {
+          id: Date.now().toString(),
+          name: newName.trim(),
+          message: newBlessing.trim(),
+        };
+
+        setBlessings([blessing, ...blessings]);
+        setNewBlessing('');
+        setNewName('');
+      } catch (error) {
+        console.error('Failed to submit blessing:', error);
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -204,12 +220,13 @@ export default function Blessings() {
 
                 <motion.button
                   type="submit"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[linear-gradient(180deg,#c9a227_0%,#ae8418_100%)] px-5 py-3 text-sm uppercase tracking-[0.2em] text-white shadow-[0_14px_28px_rgba(117,84,12,0.28)]"
+                  disabled={isSubmitting}
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[linear-gradient(180deg,#c9a227_0%,#ae8418_100%)] px-5 py-3 text-sm uppercase tracking-[0.2em] text-white shadow-[0_14px_28px_rgba(117,84,12,0.28)] disabled:opacity-70 disabled:cursor-not-allowed"
                   whileHover={{ y: -2, scale: 1.01 }}
                   whileTap={{ scale: 0.985 }}
                 >
                   <Send className="h-4 w-4" />
-                  Send Blessing
+                  {isSubmitting ? 'Sending...' : 'Send Blessing'}
                 </motion.button>
               </form>
             </div>

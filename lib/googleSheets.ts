@@ -9,11 +9,7 @@ interface SubmitPayload {
 }
 
 export async function submitToGoogleSheets(payload: SubmitPayload): Promise<void> {
-  const scriptUrl = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL;
-
-  if (!scriptUrl) {
-    throw new Error('Missing NEXT_PUBLIC_GOOGLE_SCRIPT_URL');
-  }
+  const scriptUrl = 'https://script.google.com/macros/s/AKfycbxsW7oS2mC7t6x0AiO9C-IREaVuDSJ2M2g7acVUHUDQnblbv0uwbk4EsjWK9hiwvCbIDg/exec';
 
   await fetch(scriptUrl, {
     method: 'POST',
