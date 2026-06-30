@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Copy, Link as LinkIcon, MessageCircleHeart, CheckCircle2 } from 'lucide-react';
 
-const PREFIXES = ['Mr.', 'Mrs.', 'Mr. & Mrs.', 'Family', 'Dear'];
+const PREFIXES = ['Mr.', 'Mrs.', 'Mr. & Mrs.', 'Miss.', 'Family of', 'Dear'];
 
 export default function AdminPage() {
   const [prefix, setPrefix] = useState(PREFIXES[0]);
