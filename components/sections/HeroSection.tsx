@@ -13,7 +13,7 @@ export default function HeroSection() {
       className="relative min-h-[100svh] w-full overflow-hidden"
     >
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-[60%_center] sm:bg-center bg-no-repeat"
         style={{ backgroundImage: 'url(/images/couple-1.jpeg)' }}
       />
 

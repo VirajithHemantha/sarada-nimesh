@@ -18,7 +18,7 @@ export default function CountdownSection() {
     triggerOnce: true,
   });
 
-  const targetDate = useMemo(() => new Date('2026-07-22T10:30:00').getTime(), []);
+  const targetDate = useMemo(() => new Date('2026-07-22T09:00:00+05:30').getTime(), []);
 
   const getTimeLeft = useCallback((): TimeLeft => {
     const now = new Date().getTime();

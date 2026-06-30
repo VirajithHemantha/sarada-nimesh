@@ -84,11 +84,10 @@ export default function VenueLocation() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,197,210,0.5),transparent_40%),radial-gradient(circle_at_80%_75%,rgba(226,205,255,0.55),transparent_35%)]" />
 
             <div
-              className="absolute inset-0 opacity-35"
+              className="absolute inset-0 opacity-90 bg-cover bg-center"
               style={{
                 backgroundImage:
-                  'linear-gradient(rgba(212,150,103,0.55) 1px, transparent 1px), linear-gradient(90deg, rgba(212,150,103,0.55) 1px, transparent 1px)',
-                backgroundSize: '42px 42px',
+                  'url("https://tse4.mm.bing.net/th/id/OIP.3ZniRTKERbAgcpJfyYuHWAHaFj?rs=1&pid=ImgDetMain&o=7&rm=3")',
               }}
             />
 

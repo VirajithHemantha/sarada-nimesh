@@ -30,7 +30,8 @@ export default function InvitationSection() {
 
         <h2 className="font-sans text-sm sm:text-base md:text-lg font-medium tracking-[0.3em] leading-loose text-[#2b3746] uppercase max-w-2xl mb-8">
           You are cordially invited<br />
-          to celebrate the union of
+          to celebrate the union of<br />
+          <span className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#1a232f] normal-case tracking-normal mt-4 block">Nimesh & Sarada</span>
         </h2>
 
         <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-gray-400 to-transparent mb-16" />

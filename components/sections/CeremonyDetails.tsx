@@ -198,24 +198,7 @@ export default function CeremonyDetails() {
               })}
             </div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : {}}
-              transition={{ duration: 1, delay: 0.9 }}
-              className="mt-12 overflow-hidden rounded-2xl border border-[#C9A227]/20 bg-[linear-gradient(135deg,rgba(74,15,24,0.4),rgba(26,4,8,0.8))] p-6 shadow-2xl backdrop-blur-lg relative"
-            >
-              <div className="absolute right-0 top-0 opacity-10">
-                <Crown className="w-32 h-32 -mt-8 -mr-8 text-[#C9A227]" />
-              </div>
 
-              <h4 className="text-xs uppercase tracking-widest text-[#C9A227] mb-3 font-semibold flex items-center gap-2">
-                <span className="w-6 h-[1px] bg-[#C9A227]"></span> Guest Notes
-              </h4>
-              <div className="space-y-2">
-                <p className="text-[#f5e6c8]/80 text-sm md:text-base"><span className="text-[#C9A227]">Dress Code:</span> Formal / Elegant Attire</p>
-                <p className="text-[#f5e6c8]/80 text-sm md:text-base"><span className="text-[#C9A227]">Reception:</span> Celebration continues until 04:00 PM</p>
-              </div>
-            </motion.div>
 
           </motion.div>
 
