@@ -3,9 +3,13 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Heart, Sparkles } from 'lucide-react';
+import { useSearchParams } from 'next/navigation';
 
 export default function HeroSection() {
   const { ref, inView } = useInView({ threshold: 0.05, triggerOnce: true });
+  const searchParams = useSearchParams();
+  const guest = searchParams.get('guest');
+  const prefix = searchParams.get('prefix');
 
   return (
     <section
@@ -76,7 +80,11 @@ export default function HeroSection() {
           transition={{ duration: 1, delay: 0.25 }}
           className="mt-8 max-w-3xl text-sm leading-relaxed text-[#f8ead0] sm:text-base md:text-lg"
         >
-          Request the pleasure of the presence of Mr./Mrs./Mr. & Mrs./ Miss.. To celebrate their marriage
+          {guest ? (
+            <>We request the pleasure of the presence of {prefix} {guest} to celebrate our wedding</>
+          ) : (
+            <>We request the pleasure of your presence to celebrate our wedding</>
+          )}
         </motion.p>
 
         <motion.div

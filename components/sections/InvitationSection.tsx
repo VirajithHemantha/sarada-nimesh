@@ -3,9 +3,13 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Image from 'next/image';
+import { useSearchParams } from 'next/navigation';
 
 export default function InvitationSection() {
   const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true });
+  const searchParams = useSearchParams();
+  const guest = searchParams.get('guest');
+  const prefix = searchParams.get('prefix');
 
   return (
     <section
@@ -29,8 +33,18 @@ export default function InvitationSection() {
         </p>
 
         <h2 className="font-sans text-sm sm:text-base md:text-lg font-medium tracking-[0.3em] leading-loose text-[#2b3746] uppercase max-w-2xl mb-8">
-          You are cordially invited<br />
-          to celebrate the union of<br />
+          {guest ? (
+            <>
+              We request the pleasure of the presence of<br />
+              <span className="text-xl sm:text-2xl font-bold text-[#c06f58] my-2 block">{prefix} {guest}</span>
+              to celebrate our wedding
+            </>
+          ) : (
+            <>
+              We request the pleasure of your presence<br />
+              to celebrate our wedding
+            </>
+          )}
           <span className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#1a232f] normal-case tracking-normal mt-4 block">Nimesh & Sarada</span>
         </h2>
 

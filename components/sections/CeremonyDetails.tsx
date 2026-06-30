@@ -30,8 +30,8 @@ export default function CeremonyDetails() {
       key: 'venue',
       title: 'Location',
       venueLabel: 'Venue',
-      venueValue: 'Hotel Green Court',
-      venueSub: 'Homagama',
+      venueValue: 'Grand ball room',
+      venueSub: 'Hotel Green Court, Homagama',
     },
   ];
 

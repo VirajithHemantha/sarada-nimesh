@@ -177,7 +177,7 @@ export default function BlessingsSection() {
           </h2>
 
           <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-[#7b6258]">
-            Share your prayers and heartfelt blessings for our new life together in Christ.
+            Share your prayers and heartfelt blessings for our new life together.
           </p>
         </motion.div>
 

@@ -87,7 +87,7 @@ export default function VenueLocation() {
               className="absolute inset-0 opacity-90 bg-cover bg-center"
               style={{
                 backgroundImage:
-                  'url("https://tse4.mm.bing.net/th/id/OIP.3ZniRTKERbAgcpJfyYuHWAHaFj?rs=1&pid=ImgDetMain&o=7&rm=3")',
+                  'url("/l.jpeg")',
               }}
             />
 
@@ -124,7 +124,7 @@ export default function VenueLocation() {
               >
                 <div>
                   <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#be7f56]">Location</p>
-                  <h4 className="mt-1 font-serif text-lg text-[#4d3732] sm:text-2xl">Hotel Green Court, Homagama</h4>
+                  <h4 className="mt-1 font-serif text-lg text-[#4d3732] sm:text-2xl">Grand ball room, Hotel Green Court, Homagama</h4>
                 </div>
                 <motion.div whileHover={{ scale: 1.08 }} className="flex h-11 w-11 items-center justify-center rounded-full bg-[#ca7c57] text-white shadow-md">
                   <Navigation className="h-5 w-5" />
@@ -146,11 +146,11 @@ export default function VenueLocation() {
               </div>
 
               <h3 className="font-serif text-3xl leading-tight text-[#4d3732] md:text-4xl">
-                Hotel Green Court<br />Homagama
+                Grand ball room<br />Hotel Green Court<br />Homagama
               </h3>
 
               <p className="mt-5 text-sm leading-relaxed text-[#7a6258] md:text-base">
-                We warmly invite you to join us at Hotel Green Court, Homagama for our wedding ceremony and celebration.
+                We warmly invite you to join us at the Grand ball room, Hotel Green Court, Homagama for our wedding ceremony and celebration.
               </p>
 
               <a

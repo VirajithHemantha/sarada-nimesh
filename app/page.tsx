@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { VideoIntro } from '@/components/video-intro';
 import HeroSection from '@/components/sections/HeroSection';
 import InvitationSection from '@/components/sections/InvitationSection';
@@ -31,8 +31,10 @@ export default function Home() {
         <VideoIntro onIntroEnd={() => setIsOpened(true)} />
       ) : (
         <>
-          <HeroSection />
-          <InvitationSection />
+          <Suspense fallback={null}>
+            <HeroSection />
+            <InvitationSection />
+          </Suspense>
           <CeremonyDetails />
           <CountdownSection />
           <GallerySection />
